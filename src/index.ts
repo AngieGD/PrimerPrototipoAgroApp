@@ -1,4 +1,4 @@
-//console.log('Esto funciona')
+console.log('Esto funciona')
 import indexRoute from './routes/indexRoutes';
 import gameRoute from './routes/gamesroutes';
 
