@@ -17,6 +17,7 @@ class Server { //Clase que iniciará el servidor
     }
 
     route():void { //va a configurar las rutas de App
+        this.app.use(indexRoute)        
 
 
     }
