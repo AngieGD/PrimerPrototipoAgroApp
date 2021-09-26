@@ -1,4 +1,5 @@
 import {Router} from 'express';
+import {indexControler} from '../controllers/indexControllers'
 
 class IndexRoutes{
     public router:Router= Router();
@@ -8,7 +9,7 @@ class IndexRoutes{
     }
 
     config(): void { //definir ruta inicial
-        this.router.get('/' , (req , res) => res.send('HOLIS'))
+        this.router.get('/' , indexControler.index)
 
     }
 

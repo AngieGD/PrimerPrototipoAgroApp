@@ -1,5 +1,5 @@
 import {Router} from 'express';
-
+import indexGameControler from '../controllers/gamesControlers'
 class GameRoutes{
     public router:Router= Router();
     constructor() {
@@ -8,7 +8,7 @@ class GameRoutes{
     }
 
     config(): void { //definir ruta inicial
-        this.router.get('/' , (req , res) => res.send('Game'))
+        this.router.get('/' , indexGameControler.index)
 
     }
 
