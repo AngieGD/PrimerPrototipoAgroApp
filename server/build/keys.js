@@ -4,7 +4,7 @@ exports.default = {
     database: {
         host: 'localhost',
         user: 'root',
-        password: '03092019Ap',
+        password: '03092019',
         database: 'ng_games_db'
     }
 };
