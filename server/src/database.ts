@@ -1,4 +1,5 @@
-import {createPool} from 'promise-mysql';
+//import {createPool} from 'promise-mysql';
+import mysql from 'promise-mysql';
 import keys from './keys';
 
 /* export async function connect(){
@@ -6,7 +7,7 @@ import keys from './keys';
     console.log('BD is connected');
     return connection;
 } */
-const connect = () => {
+/* const connect = () => {
     const connection = createPool(keys.database);
     console.log('BD is connected');
     
@@ -15,7 +16,7 @@ const connect = () => {
 }
 
 
-export default connect();
+export default connect(); */
 
 
 
@@ -23,7 +24,7 @@ export default connect();
 
 
 
-/* // la constante llamada pool, es la manera de iniciar la coneción 
+ // la constante llamada pool, es la manera de iniciar la coneción 
 const pool = mysql.createPool(keys.database)
 //Aqui inicio la conexion
 pool.getConnection()
@@ -31,4 +32,4 @@ pool.getConnection()
         pool.releaseConnection(connection);
         console.log('BD is connected');
     });
-export default pool; */
+export default pool; 

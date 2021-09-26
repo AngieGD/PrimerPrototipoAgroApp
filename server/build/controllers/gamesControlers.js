@@ -3,14 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const promise_mysql_1 = require("promise-mysql");
-const keys_1 = __importDefault(require("../keys"));
-const connection = promise_mysql_1.createPool(keys_1.default.database);
+//import {createPool} from 'promise-mysql';
+//import keys from '../keys';
+//const connection = createPool(keys.database);
+const database_1 = __importDefault(require("../database"));
 // traer conexión 
 //const connect  = require('../database');
 class IndexgameControler {
     index(req, res) {
-        connection.query('DESCRIBE games');
+        // connection.query('DESCRIBE games');
+        database_1.default.query('DESCRIBE games');
         res.json('games');
     }
 }

@@ -2,7 +2,7 @@ import {Request , Response } from 'express';
 
 class IndexControler {
     public index (req:Request , res:Response) {
-        res.send('HOLIS')
+        res.json({text: 'API Is/api/games'})
 
     }
 };
