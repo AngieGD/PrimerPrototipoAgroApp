@@ -11,7 +11,11 @@ class GameRoutes {
         this.config();
     }
     config() {
-        this.router.get('/', gamesControlers_1.default.index);
+        this.router.get('/', gamesControlers_1.default.list); //listar todos los juegos
+        this.router.get('/:id', gamesControlers_1.default.oneGame);
+        this.router.post('/', gamesControlers_1.default.create); //se utiliza para enviar datos
+        this.router.delete('/:id', gamesControlers_1.default.delete); //ruta para eliminar, lo hace por medio del id
+        this.router.put('/:id', gamesControlers_1.default.update);
     }
 }
 const gameRoute = new GameRoutes(); //Aqui se ejecuta todo
