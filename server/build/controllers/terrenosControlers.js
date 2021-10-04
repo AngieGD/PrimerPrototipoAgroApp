@@ -18,7 +18,7 @@ class TerrenosControlers {
         return __awaiter(this, void 0, void 0, function* () {
             const terreno = yield database_1.default.query('SELECT * FROM terrenos');
             console.log(req.body);
-            res.json('Terreno listado');
+            res.json(terreno);
         });
     }
     crear(req, res) {

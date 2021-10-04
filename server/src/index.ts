@@ -6,7 +6,7 @@ import express, {Application, urlencoded} from 'express'
 import morgan from 'morgan';
 import cors from 'cors'
 import subterrenoroute from './routes/subterrenoroutes';
-import mantenimientosroutes from './routes/mantenimientosroutes';
+import mantenimientoMNsubteRoutes from './routes/manteMNsubterrroutes';
 import mantenimientoroutes from './routes/mantenimientosroutes';
 
 
@@ -35,6 +35,7 @@ class Server { //Clase que iniciará el servidor
         this.app.use('/api/terrenos', terrenosroutes);
         this.app.use('/api/subterreno', subterrenoroute);
         this.app.use('/api/mantenimiento' , mantenimientoroutes);
+        this.app.use('/api/mantemnsubte' , mantenimientoMNsubteRoutes)
 
     }
     star():void{

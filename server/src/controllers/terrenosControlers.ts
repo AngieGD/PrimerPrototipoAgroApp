@@ -7,7 +7,7 @@ class TerrenosControlers {
         console.log(req.body)
 
         
-        res.json('Terreno listado')
+        res.json(terreno)
         
     }
 
