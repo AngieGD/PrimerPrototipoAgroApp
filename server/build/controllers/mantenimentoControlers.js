@@ -13,48 +13,47 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class TerrenosControlers {
+class Mantenimientocontrolers {
     listar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const terreno = yield database_1.default.query('SELECT * FROM terrenos');
-            console.log(req.body);
-            res.json('Terreno listado');
+            const mantenimiento = yield database_1.default.query('SELECT * FROM mantenimentos');
+            console.log(mantenimiento);
+            res.json(mantenimiento);
         });
     }
     crear(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO terrenos set ?', [req.body]);
-            res.json({ message: 'Terreno agregado' });
+            yield database_1.default.query('INSERT INTO mantenimentos set ?', [req.body]);
+            res.json({ message: 'mantenimentos agregado' });
             console.log(req.body);
         });
     }
     listarUno(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const terreno = yield database_1.default.query('SELECT * FROM terrenos WHERE idterrenos= ?', [id]);
-            if (terreno.length > 0) {
-                return res.json(terreno[0]);
+            const mantenimiento = yield database_1.default.query('SELECT * FROM mantenimentos WHERE idmantenimentos= ?', [id]);
+            if (mantenimiento.length > 0) {
+                return res.json(mantenimiento[0]);
             }
             else {
-                res.status(404).json({ text: "Terreno no encontrado" });
+                res.status(404).json({ text: "mantenimento no encontrado" });
             }
         });
     }
     editar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE terrenos set ? WHERE idterrenos = ?', [req.body, id]);
-            res.json({ message: 'El terreno fue editado' });
+            yield database_1.default.query('UPDATE mantenimentos set ? WHERE idmantenimentos = ?', [req.body, id]);
+            res.json({ message: 'El mantenimento fue editado' });
         });
     }
     eliminar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM terrenos WHERE idterrenos = ?', [id]);
-            res.json({ text: `Terreno eliminado eliminado ${req.params.id}` });
+            yield database_1.default.query('DELETE FROM mantenimentos WHERE idmantenimentos = ?', [id]);
+            res.json({ text: `mantenimentos eliminado eliminado ${req.params.id}` });
         });
     }
 }
-;
-const terrenocontrolers = new TerrenosControlers();
-exports.default = terrenocontrolers;
+const mantenimientocontrolers = new Mantenimientocontrolers();
+exports.default = mantenimientocontrolers;

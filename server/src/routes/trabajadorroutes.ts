@@ -11,10 +11,10 @@ import trabajadorcontroler from "../controllers/trabajadorControlers";
 
      config(): void {
          this.router.get('/' , trabajadorcontroler.listar);
-         this.router.post('/' , trabajadorcontroler.crear)
-         this.router.put('/:id', trabajadorcontroler.editar)
-         this.router.get('/:id', trabajadorcontroler.listarUno)
-         this.router.delete('/:id' , trabajadorcontroler.eliminar)
+         this.router.post('/' , trabajadorcontroler.crear);
+         this.router.put('/:id', trabajadorcontroler.editar);
+         this.router.get('/:id', trabajadorcontroler.listarUno);
+         this.router.delete('/:id' , trabajadorcontroler.eliminar);
 
 
      }

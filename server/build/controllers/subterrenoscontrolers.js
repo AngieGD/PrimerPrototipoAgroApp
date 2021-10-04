@@ -13,48 +13,49 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const database_1 = __importDefault(require("../database"));
-class TerrenosControlers {
+class SubterrenosControlers {
     listar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const terreno = yield database_1.default.query('SELECT * FROM terrenos');
+            const terreno = yield database_1.default.query('SELECT * FROM subterreno');
             console.log(req.body);
-            res.json('Terreno listado');
+            res.json(terreno);
+            res.json('Subterreno listado');
         });
     }
     crear(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield database_1.default.query('INSERT INTO terrenos set ?', [req.body]);
-            res.json({ message: 'Terreno agregado' });
+            yield database_1.default.query('INSERT INTO subterreno set ?', [req.body]);
+            res.json({ message: 'Suberreno agregado' });
             console.log(req.body);
         });
     }
     listarUno(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const terreno = yield database_1.default.query('SELECT * FROM terrenos WHERE idterrenos= ?', [id]);
+            const terreno = yield database_1.default.query('SELECT * FROM subterreno WHERE idsubterreno = ?', [id]);
             if (terreno.length > 0) {
                 return res.json(terreno[0]);
             }
             else {
-                res.status(404).json({ text: "Terreno no encontrado" });
+                res.status(404).json({ text: "Subterreno no encontrado" });
             }
         });
     }
     editar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE terrenos set ? WHERE idterrenos = ?', [req.body, id]);
-            res.json({ message: 'El terreno fue editado' });
+            yield database_1.default.query('UPDATE subterreno set ? WHERE idsubterreno  = ?', [req.body, id]);
+            res.json({ message: 'El Subterreno fue editado' });
         });
     }
     eliminar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM terrenos WHERE idterrenos = ?', [id]);
-            res.json({ text: `Terreno eliminado eliminado ${req.params.id}` });
+            yield database_1.default.query('DELETE FROM subterreno WHERE idsubterreno = ?', [id]);
+            res.json({ text: `Subterreno eliminado eliminado ${req.params.id}` });
         });
     }
 }
 ;
-const terrenocontrolers = new TerrenosControlers();
-exports.default = terrenocontrolers;
+const subterrenocontrolers = new SubterrenosControlers();
+exports.default = subterrenocontrolers;

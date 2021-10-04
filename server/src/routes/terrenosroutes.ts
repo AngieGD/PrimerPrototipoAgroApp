@@ -14,11 +14,13 @@ import terrenocontrolers from '../controllers/terrenosControlers';
          this.router.post('/' , terrenocontrolers.crear);
          this.router.get('/', terrenocontrolers.listar);
          this.router.get('/:id', terrenocontrolers.listarUno);
-
+         this.router.put('/:id', terrenocontrolers.editar);
+         this.router.delete('/:id', terrenocontrolers.eliminar);
          
 
      }
  }
+ 
 
  const terrenoroute = new Terrenosroutes();
  export default terrenoroute.router;

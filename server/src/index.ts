@@ -2,10 +2,12 @@ console.log('Esto funciona')
 import indexRoute from './routes/indexRoutes';
 import trabajadorroute from './routes/trabajadorroutes';
 import terrenosroutes from './routes/terrenosroutes';
-
 import express, {Application, urlencoded} from 'express'
 import morgan from 'morgan';
 import cors from 'cors'
+import subterrenoroute from './routes/subterrenoroutes';
+import mantenimientosroutes from './routes/mantenimientosroutes';
+import mantenimientoroutes from './routes/mantenimientosroutes';
 
 
 class Server { //Clase que iniciará el servidor
@@ -28,10 +30,11 @@ class Server { //Clase que iniciará el servidor
 
     route():void { //va a configurar las rutas de App
         this.app.use('/',indexRoute)      
-        this.app.use('/api/terreno' , terrenosroutes)
-        this.app.use('/api/trabajador', trabajadorroute)
-        this.app.use('/api/terrenos', terrenosroutes)
 
+        this.app.use('/api/trabajador', trabajadorroute);
+        this.app.use('/api/terrenos', terrenosroutes);
+        this.app.use('/api/subterreno', subterrenoroute);
+        this.app.use('/api/mantenimiento' , mantenimientoroutes);
 
     }
     star():void{
