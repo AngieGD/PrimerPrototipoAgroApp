@@ -1,6 +1,7 @@
 console.log('Esto funciona')
 import indexRoute from './routes/indexRoutes';
-import gameRoute from './routes/gamesroutes';
+import trabajadorroute from './routes/trabajadorroutes';
+import terrenosroutes from './routes/terrenosroutes';
 
 import express, {Application, urlencoded} from 'express'
 import morgan from 'morgan';
@@ -27,7 +28,9 @@ class Server { //Clase que iniciará el servidor
 
     route():void { //va a configurar las rutas de App
         this.app.use('/',indexRoute)      
-        this.app.use('/api/game',gameRoute)  
+        this.app.use('/api/terreno' , terrenosroutes)
+        this.app.use('/api/trabajador', trabajadorroute)
+        this.app.use('/api/terrenos', terrenosroutes)
 
 
     }

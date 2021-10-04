@@ -5,6 +5,6 @@ exports.default = {
         host: 'localhost',
         user: 'root',
         password: '03092019',
-        database: 'ng_games_db'
+        database: 'AgroAppP'
     }
 };

@@ -53,5 +53,5 @@ class IndexgameControler {
 
 const indexGameControler = new IndexgameControler();
 //se exporta la instancia
-export default indexGameControler;
+export default indexGameControler; 
 

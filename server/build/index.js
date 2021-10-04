@@ -5,7 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 console.log('Esto funciona');
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
-const gamesroutes_1 = __importDefault(require("./routes/gamesroutes"));
+const trabajadorroutes_1 = __importDefault(require("./routes/trabajadorroutes"));
+const terrenosroutes_1 = __importDefault(require("./routes/terrenosroutes"));
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
@@ -24,7 +25,9 @@ class Server {
     }
     route() {
         this.app.use('/', indexRoutes_1.default);
-        this.app.use('/api/game', gamesroutes_1.default);
+        this.app.use('/api/terreno', terrenosroutes_1.default);
+        this.app.use('/api/trabajador', trabajadorroutes_1.default);
+        this.app.use('/api/terrenos', terrenosroutes_1.default);
     }
     star() {
         this.app.listen(this.app.get('Port'));
