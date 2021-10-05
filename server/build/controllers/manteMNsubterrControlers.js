@@ -24,34 +24,34 @@ class MantenimientoMNsubteControlers {
     crear(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             yield database_1.default.query('INSERT INTO mantenimentos_has_subterreno set ?', [req.body]);
-            res.json({ message: 'mantenimentos agregado' });
+            res.json({ message: 'mantenimentos  mn agregado' });
             console.log(req.body);
         });
     }
     listarUno(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            const mantenimiento = yield database_1.default.query('SELECT * FROM mantenimentos_has_subterreno WHERE idmantenimentos= ?', [id]);
+            const mantenimiento = yield database_1.default.query('SELECT * FROM mantenimentos_has_subterreno WHERE iD_mantenimentos_subterrenocol= ?', [id]);
             if (mantenimiento.length > 0) {
                 return res.json(mantenimiento[0]);
             }
             else {
-                res.status(404).json({ text: "mantenimento no encontrado" });
+                res.status(404).json({ text: "mantenimento mn no encontrado" });
             }
         });
     }
     editar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('UPDATE mantenimentos_has_subterreno set ? WHERE idmantenimentos = ?', [req.body, id]);
-            res.json({ message: 'El mantenimento fue editado' });
+            yield database_1.default.query('UPDATE mantenimentos_has_subterreno set ? WHERE iD_mantenimentos_subterrenocol = ?', [req.body, id]);
+            res.json({ message: 'El mantenimento mn fue editado' });
         });
     }
     eliminar(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            yield database_1.default.query('DELETE FROM mantenimentos_has_subterreno WHERE idmantenimentos = ?', [id]);
-            res.json({ text: `mantenimentos eliminado eliminado ${req.params.id}` });
+            yield database_1.default.query('DELETE FROM mantenimentos_has_subterreno WHERE iD_mantenimentos_subterrenocol = ?', [id]);
+            res.json({ text: `mantenimentos mn  eliminado ${req.params.id}` });
         });
     }
 }

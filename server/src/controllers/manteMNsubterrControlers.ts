@@ -14,17 +14,17 @@ class MantenimientoMNsubteControlers {
 
     public async crear (req:Request , res:Response): Promise<void>{
         await pool.query('INSERT INTO mantenimentos_has_subterreno set ?' , [req.body]);
-        res.json({message: 'mantenimentos agregado'})
+        res.json({message: 'mantenimentos  mn agregado'})
         console.log(req.body)
     }
 
     public async listarUno (req:Request , res:Response): Promise<any>{
         const{id} = req.params
-        const mantenimiento = await pool.query('SELECT * FROM mantenimentos_has_subterreno WHERE idmantenimentos= ?' , [id])
+        const mantenimiento = await pool.query('SELECT * FROM mantenimentos_has_subterreno WHERE iD_mantenimentos_subterrenocol= ?' , [id])
         if (mantenimiento.length > 0){
             return res.json(mantenimiento[0])
         } else{
-        res.status(404).json({text: "mantenimento no encontrado"})
+        res.status(404).json({text: "mantenimento mn no encontrado"})
         }
         
 
@@ -32,16 +32,16 @@ class MantenimientoMNsubteControlers {
 
     public async editar (req:Request , res:Response): Promise<void>{
         const{id} = req.params
-        await pool.query('UPDATE mantenimentos_has_subterreno set ? WHERE idmantenimentos = ?' , [req.body , id])
+        await pool.query('UPDATE mantenimentos_has_subterreno set ? WHERE iD_mantenimentos_subterrenocol = ?' , [req.body , id])
 
-        res.json({message: 'El mantenimento fue editado'})
+        res.json({message: 'El mantenimento mn fue editado'})
 
     }
 
     public async eliminar (req:Request , res:Response) : Promise<void>{
         const {id} = req.params
-        await pool.query('DELETE FROM mantenimentos_has_subterreno WHERE idmantenimentos = ?' , [id]);
-        res.json({text: `mantenimentos eliminado eliminado ${req.params.id}`});
+        await pool.query('DELETE FROM mantenimentos_has_subterreno WHERE iD_mantenimentos_subterrenocol = ?' , [id]);
+        res.json({text: `mantenimentos mn  eliminado ${req.params.id}`});
         
 
     }
