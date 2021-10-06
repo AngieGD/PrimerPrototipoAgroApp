@@ -13,6 +13,8 @@ const cors_1 = __importDefault(require("cors"));
 const subterrenoroutes_1 = __importDefault(require("./routes/subterrenoroutes"));
 const manteMNsubterrroutes_1 = __importDefault(require("./routes/manteMNsubterrroutes"));
 const mantenimientosroutes_1 = __importDefault(require("./routes/mantenimientosroutes"));
+const insumosRoutes_1 = __importDefault(require("./routes/insumosRoutes"));
+const herramientasRoutes_1 = __importDefault(require("./routes/herramientasRoutes"));
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -33,6 +35,8 @@ class Server {
         this.app.use('/api/subterreno', subterrenoroutes_1.default);
         this.app.use('/api/mantenimiento', mantenimientosroutes_1.default);
         this.app.use('/api/mantemnsubte', manteMNsubterrroutes_1.default);
+        this.app.use('/api/insumos', insumosRoutes_1.default); //Solo tiene get
+        this.app.use('/api/herramientas', herramientasRoutes_1.default); //Solo tiene get
     }
     star() {
         this.app.listen(this.app.get('Port'));

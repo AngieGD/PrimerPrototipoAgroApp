@@ -8,6 +8,9 @@ import cors from 'cors'
 import subterrenoroute from './routes/subterrenoroutes';
 import mantenimientoMNsubteRoutes from './routes/manteMNsubterrroutes';
 import mantenimientoroutes from './routes/mantenimientosroutes';
+import insumesRoutes from './routes/insumosRoutes';
+import herramientasRoutes from './routes/herramientasRoutes';
+
 
 
 class Server { //Clase que iniciará el servidor
@@ -35,7 +38,9 @@ class Server { //Clase que iniciará el servidor
         this.app.use('/api/terrenos', terrenosroutes);
         this.app.use('/api/subterreno', subterrenoroute);
         this.app.use('/api/mantenimiento' , mantenimientoroutes);
-        this.app.use('/api/mantemnsubte' , mantenimientoMNsubteRoutes)
+        this.app.use('/api/mantemnsubte' , mantenimientoMNsubteRoutes);
+        this.app.use('/api/insumos' , insumesRoutes) //Solo tiene get
+        this.app.use('/api/herramientas' , herramientasRoutes) //Solo tiene get
 
     }
     star():void{
